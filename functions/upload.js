@@ -270,7 +270,7 @@ async function uploadFileToTelegram(env, formdata, fullId, metadata, fileExt, fi
 
     // GIF 发送接口特殊处理
     if (fileType === 'image/gif' || fileType === 'image/webp' || fileExt === 'gif' || fileExt === 'webp') {
-        sendFunction = {'url': 'sendAnimation', 'type': 'animation'};
+        sendFunction = {'url': 'sendDocument', 'type': 'document'};
     }
 
     // 根据服务端压缩设置处理接口：从参数中获取serverCompress，如果为false，则使用sendDocument接口
