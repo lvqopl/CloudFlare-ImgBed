@@ -245,7 +245,7 @@ async function uploadFileToCloudflareR2(env, formdata, fullId, metadata) {
 async function uploadFileToTelegram(env, formdata, fullId, metadata, fileExt, fileName, fileType, url, clonedRequest) {
     // 由于TG会把gif后缀的文件转为视频，所以需要修改后缀名绕过限制
     if (fileExt === 'gif') {
-        const newFileName = fileName.replace(/\.gif$/, '.jpeg');
+        const newFileName = fileName.replace(/\.gif$/, '.gif');
         const newFile = new File([formdata.get('file')], newFileName, { type: fileType });
         formdata.set('file', newFile);
     } else if (fileExt === 'webp') {
